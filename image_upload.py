@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
 
 
-image_path = '/Users/ahmadmatar/Desktop/AIcourse/proj.test/data/seven.png'
-MODEL_PATH = '/Users/ahmadmatar/Desktop/AIcourse/proj.test/data/full_model1.keras'
+image_path = './seven.png'
+MODEL_PATH = './full_model1.keras'
 
 digit_language_mapping = {
     0: '0 (Arabic)', 1: '1 (Arabic)', 2: '2 (Arabic)', 3: '3 (Arabic)', 4: '4 (Arabic)', 5: '5 (Arabic)', 6: '6 (Arabic)', 7: '7 (Arabic)', 8: '8 (Arabic)', 9: '9 (Arabic)',

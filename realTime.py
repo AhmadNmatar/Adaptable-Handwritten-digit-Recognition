@@ -17,7 +17,7 @@ def load_model(model_path):
     interpreter.allocate_tensors()
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
-    input_shape = input_details[0]['shape']  # Expected shape: (1, 28, 28, 1)
+    input_shape = input_details[0]['shape'] 
     print("Model loaded. Input shape:", input_shape)
     return interpreter, input_details, output_details
 

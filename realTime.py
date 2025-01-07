@@ -5,7 +5,7 @@ import signal
 import sys
 
 # Constants
-MODEL_PATH = '/Users/ahmadmatar/Desktop/AIcourse/proj.test/data/full_model95.tflite'
+MODEL_PATH = 'full_model95.tflite'
 WITDTH, HIEGH = 640, 480  # Webcam resolution
 IMAGE_BORDER = 40  # Border width
 PROB_THRESHOLD = 0.7  # Minimum confidence threshold

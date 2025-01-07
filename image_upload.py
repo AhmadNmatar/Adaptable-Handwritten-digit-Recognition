@@ -24,34 +24,15 @@ model = load_model(MODEL_PATH)
 
 # Step 1: Load the image
 image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)  # Read as grayscale
-plt.imshow(image, cmap='gray')  # Display original grayscale image
-plt.title("Step 1: Original Image (Grayscale)")
-plt.axis('off')
-plt.show()
-
 # Step 2: Resize the cropped image
 _, image = cv2.threshold(image, 128, 255, cv2.THRESH_BINARY_INV)  # Thresholding
 image = cv2.GaussianBlur(image, (5, 5), 0)  # Gaussian Blur
 resized_image = cv2.resize(image, (28, 28))  # Resize to 28x28 pixels
-plt.imshow(resized_image, cmap='gray')  # Display resized image
-plt.title("Step 2: Resized to 28x28")
-plt.axis('off')
-plt.show()
-
 # Step 3: Normalize colors
 normalized_image = resized_image.astype('float32') / 255.0  # Normalize pixel values (0 to 1)
-plt.imshow(normalized_image, cmap='gray')  # Display inverted image
-plt.title("Step 3: Normalized and Inverted (0 to 1)")
-plt.axis('off')
-plt.show()
 
 # Step 4: Reshape the image for the model
 final_image = normalized_image.reshape(1, 28, 28, 1)  # Reshape for model input
-plt.imshow(np.squeeze(final_image[0, :, :, 0]), cmap='gray')  # Display the final preprocessed image
-plt.title("Step 4: Final Preprocessed Image (Input to Model)")
-plt.axis('off')
-plt.show()
-
 
 # Step 5: Predict the digit
 try:
@@ -67,6 +48,8 @@ try:
 
     # Use the original and complete digit_language_mapping
     print(f"this digit is {digit_language_mapping[predicted_class]}")
-
+    plt.imshow(np.squeeze(final_image[0, :, :, 0]), cmap='gray')
+    plt.title(f"Predicted: the digit is {digit_language_mapping[predicted_class]}")
+    plt.show()
 except ValueError as e:
     print("Error during prediction:", e)
